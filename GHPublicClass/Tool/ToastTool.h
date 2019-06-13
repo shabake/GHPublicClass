@@ -10,8 +10,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface FSToastTool : NSObject
-
+typedef void(^ToastToolCompleteBlock)(void);
+@interface ToastTool : NSObject
 
 /**
  *  单例
@@ -57,19 +57,22 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)hideAfterDelay:(NSTimeInterval)delay;
 
 
-
 #pragma mark -  Toast相关
-
 + (void)makeToast:(NSString *)message targetView:(UIView *)targetView delay: (NSTimeInterval)delay;
-
 /** 显示Toast+message */
 + (void)makeToast:(NSString *)message targetView:(UIView *)targetView;
+
++ (void)makeToast:(NSString *)message targetView:(UIView *)targetView toastToolCompleteBlock:(ToastToolCompleteBlock)toastToolCompleteBlock;
+
 /** 隐藏Toast */
 + (void)hideToast:(UIView *)targetView;
 /** 指示器Toast */
 + (void)makeToastActivity:(UIView *)targetView;
 /** 隐藏指示器Toast */
 + (void)hideToastActivity:(UIView *)targetView;
+
+/** 指示器Toast */
++ (void)makeToastActivity:(UIView *)targetView toastToolCompleteBlock: (ToastToolCompleteBlock)toastToolCompleteBlock;
 
 @end
 

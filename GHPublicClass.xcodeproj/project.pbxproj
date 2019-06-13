@@ -16,7 +16,7 @@
 		D681079622B1E969000189CF /* GHPublicClassTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D681079522B1E969000189CF /* GHPublicClassTests.m */; };
 		D68107A122B1E969000189CF /* GHPublicClassUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = D68107A022B1E969000189CF /* GHPublicClassUITests.m */; };
 		D68107B122B1EA84000189CF /* GHPrivacyAuthTool.m in Sources */ = {isa = PBXBuildFile; fileRef = D68107B022B1EA84000189CF /* GHPrivacyAuthTool.m */; };
-		D68107B422B1EB68000189CF /* FSToastTool.m in Sources */ = {isa = PBXBuildFile; fileRef = D68107B322B1EB68000189CF /* FSToastTool.m */; };
+		D68107B422B1EB68000189CF /* ToastTool.m in Sources */ = {isa = PBXBuildFile; fileRef = D68107B322B1EB68000189CF /* ToastTool.m */; };
 		D68107F422B1EB9D000189CF /* NSLayoutConstraint+MASDebugAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D68107B822B1EB9C000189CF /* NSLayoutConstraint+MASDebugAdditions.m */; };
 		D68107F522B1EB9D000189CF /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D68107C122B1EB9C000189CF /* ViewController+MASAdditions.m */; };
 		D68107F622B1EB9D000189CF /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = D68107C522B1EB9C000189CF /* MASCompositeConstraint.m */; };
@@ -94,6 +94,7 @@
 		D68108FF22B1ED18000189CF /* UIView+Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = D68108FB22B1ED18000189CF /* UIView+Toast.m */; };
 		D681090022B1ED18000189CF /* NSString+Size.m in Sources */ = {isa = PBXBuildFile; fileRef = D68108FC22B1ED18000189CF /* NSString+Size.m */; };
 		D681090322B1EEC1000189CF /* UIColor+Conversion.m in Sources */ = {isa = PBXBuildFile; fileRef = D681090222B1EEC1000189CF /* UIColor+Conversion.m */; };
+		D681090722B1F2E4000189CF /* CacheHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D681090622B1F2E4000189CF /* CacheHelper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -132,8 +133,8 @@
 		D68107A222B1E969000189CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D68107AF22B1EA84000189CF /* GHPrivacyAuthTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHPrivacyAuthTool.h; sourceTree = "<group>"; };
 		D68107B022B1EA84000189CF /* GHPrivacyAuthTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHPrivacyAuthTool.m; sourceTree = "<group>"; };
-		D68107B222B1EB68000189CF /* FSToastTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSToastTool.h; sourceTree = "<group>"; };
-		D68107B322B1EB68000189CF /* FSToastTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSToastTool.m; sourceTree = "<group>"; };
+		D68107B222B1EB68000189CF /* ToastTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ToastTool.h; sourceTree = "<group>"; };
+		D68107B322B1EB68000189CF /* ToastTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ToastTool.m; sourceTree = "<group>"; };
 		D68107B722B1EB9C000189CF /* MASCompositeConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASCompositeConstraint.h; sourceTree = "<group>"; };
 		D68107B822B1EB9C000189CF /* NSLayoutConstraint+MASDebugAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLayoutConstraint+MASDebugAdditions.m"; sourceTree = "<group>"; };
 		D68107B922B1EB9C000189CF /* MASConstraint+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MASConstraint+Private.h"; sourceTree = "<group>"; };
@@ -298,6 +299,8 @@
 		D681090122B1EEC1000189CF /* UIColor+Conversion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+Conversion.h"; sourceTree = "<group>"; };
 		D681090222B1EEC1000189CF /* UIColor+Conversion.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Conversion.m"; sourceTree = "<group>"; };
 		D681090422B1EFEF000189CF /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		D681090522B1F2E4000189CF /* CacheHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CacheHelper.h; sourceTree = "<group>"; };
+		D681090622B1F2E4000189CF /* CacheHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CacheHelper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -388,8 +391,10 @@
 			children = (
 				D68107AF22B1EA84000189CF /* GHPrivacyAuthTool.h */,
 				D68107B022B1EA84000189CF /* GHPrivacyAuthTool.m */,
-				D68107B222B1EB68000189CF /* FSToastTool.h */,
-				D68107B322B1EB68000189CF /* FSToastTool.m */,
+				D68107B222B1EB68000189CF /* ToastTool.h */,
+				D68107B322B1EB68000189CF /* ToastTool.m */,
+				D681090522B1F2E4000189CF /* CacheHelper.h */,
+				D681090622B1F2E4000189CF /* CacheHelper.m */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -846,7 +851,7 @@
 				D68107FE22B1EB9D000189CF /* SDWebImageManager.m in Sources */,
 				D681088722B1EC13000189CF /* IQNSArray+Sort.m in Sources */,
 				D68108FD22B1ED18000189CF /* UIView+Extension.m in Sources */,
-				D68107B422B1EB68000189CF /* FSToastTool.m in Sources */,
+				D68107B422B1EB68000189CF /* ToastTool.m in Sources */,
 				D68107F822B1EB9D000189CF /* MASLayoutConstraint.m in Sources */,
 				D68108A922B1EC13000189CF /* MJProperty.m in Sources */,
 				D681080E22B1EB9D000189CF /* UIButton+WebCache.m in Sources */,
@@ -880,6 +885,7 @@
 				D68108AF22B1EC13000189CF /* MJPropertyKey.m in Sources */,
 				D68108EB22B1EC91000189CF /* MJRefreshAutoNormalFooter.m in Sources */,
 				D681080822B1EB9D000189CF /* NSData+ImageContentType.m in Sources */,
+				D681090722B1F2E4000189CF /* CacheHelper.m in Sources */,
 				D68107FA22B1EB9D000189CF /* View+MASAdditions.m in Sources */,
 				D68108EE22B1EC91000189CF /* MJRefreshGifHeader.m in Sources */,
 				D68108E322B1EC91000189CF /* UIScrollView+MJExtension.m in Sources */,
@@ -1092,6 +1098,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				GCC_PREFIX_HEADER = GHPublicClass/PrefixHeader.pch;
 				INFOPLIST_FILE = GHPublicClass/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1109,6 +1116,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				GCC_PREFIX_HEADER = GHPublicClass/PrefixHeader.pch;
 				INFOPLIST_FILE = GHPublicClass/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

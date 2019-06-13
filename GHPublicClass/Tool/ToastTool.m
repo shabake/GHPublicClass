@@ -6,16 +6,17 @@
 //  Copyright © 2019年 danxia. All rights reserved.
 //
 
-#import "FSToastTool.h"
+#import "ToastTool.h"
 #import "MBProgressHUD.h"
 
-@interface FSToastTool() {
+@interface ToastTool() {
     __weak UIView *_inView;
 }
+
 @property (nonatomic,strong) MBProgressHUD *mBProgressHUD;
 
 @end
-@implementation FSToastTool
+@implementation ToastTool
 
 #ifndef dispatch_main_async_safe
 #define dispatch_main_async_safe(block)\
@@ -28,9 +29,9 @@
 
 + (instancetype)share{
     static dispatch_once_t t;
-    static FSToastTool *manager = nil;
+    static ToastTool *manager = nil;
     dispatch_once(&t, ^{
-        manager = [[FSToastTool alloc] init];
+        manager = [[ToastTool alloc] init];
     });
     return manager;
 }
@@ -109,7 +110,7 @@
     // 2秒之后再消失
     [hud hide:YES afterDelay:delay];
 }
-/* 登录页面样式*/
+
 + (void)makeToast:(NSString *)message targetView:(UIView *)targetView {
 
     if (targetView == nil) targetView = [[UIApplication sharedApplication].windows lastObject];
@@ -126,6 +127,27 @@
     [hud hide:YES afterDelay:1.5];
 }
 
++ (void)makeToast:(NSString *)message targetView:(UIView *)targetView toastToolCompleteBlock:(ToastToolCompleteBlock)toastToolCompleteBlock {
+
+    if (targetView == nil) targetView = [[UIApplication sharedApplication].windows lastObject];
+    //每次显示前先隐藏
+    [MBProgressHUD hideHUDForView:targetView animated:YES];
+    // 快速显示一个提示信息
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:targetView animated:YES];
+    hud.mode = MBProgressHUDModeText;
+    hud.detailsLabelText = message;
+    hud.alpha = 0.7;
+    // 隐藏时候从父控件中移除
+    hud.removeFromSuperViewOnHide = YES;
+    // 2秒之后再消失
+    [hud hide:YES afterDelay:1.5];
+    hud.completionBlock = ^{
+        if (toastToolCompleteBlock) {
+            toastToolCompleteBlock();
+        }
+    };
+}
+
 + (void)hideToast:(UIView *)targetView {
     [MBProgressHUD hideHUDForView:targetView animated:YES];
 }
@@ -136,6 +158,20 @@
     hud.mode = MBProgressHUDModeIndeterminate;
     hud.alpha = 0.7;
     hud.removeFromSuperViewOnHide = YES;
+}
+
++ (void)makeToastActivity:(UIView *)targetView toastToolCompleteBlock: (ToastToolCompleteBlock)toastToolCompleteBlock {
+      [MBProgressHUD hideHUDForView:targetView animated:YES];
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:targetView animated:YES];
+    hud.mode = MBProgressHUDModeIndeterminate;
+    hud.alpha = 0.7;
+    hud.removeFromSuperViewOnHide = YES;
+    [hud hide:YES afterDelay:1.5];
+    hud.completionBlock = ^{
+        if (toastToolCompleteBlock) {
+            toastToolCompleteBlock();
+        }
+    };
 }
 
 + (void)hideToastActivity:(UIView *)targetView {
